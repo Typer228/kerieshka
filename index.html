@@ -5,6 +5,10 @@
     <title>Side Bar Navigation</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
+      :root {
+        --tg-theme-header-bg-color: #999999;
+        --tg-theme-secondary-bg-color: #999999;
+      }
       body, html {
         height: 100%;
         width: 100%;
@@ -26,10 +30,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #232E3C;
-      }
-      :root {
-        --tg-theme-header-bg-color: #f5f5f5;
       }
     </style>
   </head>
@@ -39,5 +39,10 @@
         
       </div>
     </div>
+    <script>
+      const bridge = Telegram.WebApp;
+      bridge.postEvent('web_app_set_header_color', {color_key: 'secondary_bg_color'});
+      bridge.postEvent('web_app_set_background_color', {color: '#999999'});
+    </script>
   </body>
 </html>
