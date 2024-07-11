@@ -14,6 +14,19 @@ body {
     padding: 10px 0;
 }
 
+.lowermenu {
+    border: 0;
+    margin-top: 50px;
+    height: 60px;
+    width: 200px;
+    font-size: 20px;
+    font-weight: 508;
+    cursor: pointer;
+    transition: all 500ms ease;
+    color: var(--tg-theme-button-color);
+    background: var(--tg-theme-button-text-color);
+}
+
 button {
     border: 0;
     border-radius: 5px;
