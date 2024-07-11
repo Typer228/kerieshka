@@ -24,8 +24,8 @@ body {
     font-weight: 508;
     cursor: pointer;
     transition: all 500ms ease;
-    color: var(--tg-theme-button-color);
-    background: var(--tg-theme-button-text-color);
+    color: #f5f5f5;
+    background: #5288C1;
     box-sizing: border-box;
 }
 
@@ -43,8 +43,8 @@ button {
     font-weight: 508;
     cursor: pointer;
     transition: all 500ms ease;
-    color: var(--tg-theme-button-color);
-    background: var(--tg-theme-button-text-color);
+    color: #f5f5f5;
+    background: #5288C1;
 }
 
 button:hover {
