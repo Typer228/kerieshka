@@ -8,8 +8,7 @@ body {
 .footer {
     position: fixed;
     bottom: 0;
-    width: calc(100% - 40px);
-    left: 20px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     background: var(--tg-theme-bg-color);
