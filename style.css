@@ -2,16 +2,36 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
+    padding: 0 20px;
 }
 
 .footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: calc(100% - 40px);
+    left: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background: var(--tg-theme-bg-color);
     padding: 10px 0;
+}
+
+.footer-btn {
+    border: 0;
+    border-radius: 0;
+    height: 40px;
+    width: 33.333%;
+    font-size: 20px;
+    font-weight: 508;
+    cursor: pointer;
+    transition: all 500ms ease;
+    color: var(--tg-theme-button-color);
+    background: var(--tg-theme-button-text-color);
+    box-sizing: border-box;
+}
+
+.footer-btn:hover {
+    background: var(--tg-theme-secondary-bg-color);
 }
 
 button {
@@ -29,23 +49,5 @@ button {
 }
 
 button:hover {
-    background: var(--tg-theme-secondary-bg-color);
-}
-
-.footer-btn {
-    border: 0;
-    border-radius: 0;
-    height: 40px;
-    width: calc(100% / 3);
-    font-size: 20px;
-    font-weight: 508;
-    cursor: pointer;
-    transition: all 500ms ease;
-    color: var(--tg-theme-button-color);
-    background: var(--tg-theme-button-text-color);
-    box-sizing: border-box;
-}
-
-.footer-btn:hover {
     background: var(--tg-theme-secondary-bg-color);
 }
