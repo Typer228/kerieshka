@@ -10,10 +10,10 @@ const userPhotoUrl = user.photo_url;
 fetch('/register', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id: userId, username: userName, photo_url: userPhotoUrl })
-  })
+        body: JSON.stringify({ id: userId, username: userName, photo_url: userPhotoUrl })
+})
 .then(response => response.json())
 .then(data => {
     // Обновление баланса
@@ -21,18 +21,15 @@ fetch('/register', {
 })
 .catch(error => console.error('Ошибка:', error));
 
-// Профиль
-document.getElementById('profileBtn').addEventListener('click', () => {
-document.getElementById('mainContent').innerHTML = `
+const profileContent = `
     <div class="profile">
     <img src="${userPhotoUrl}" alt="Avatar" class="avatar">
     <h2>${userName}</h2>
     </div>
 `;
-});
 
 const marketContent = '<button>Тест</button>';
-const infoContent = '<h6>Информация</h2>';
+const infoContent = '<h6>Информация</h6>';
 
 function changeContent(content) {
     const mainContent = document.getElementById('mainContent');
