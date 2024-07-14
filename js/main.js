@@ -25,7 +25,7 @@ const profileContent = `
   </div>
 `;
 
-const marketContent = '<button id="give_money" class="btn">Выдать 52 монеты</button>';
+const marketContent = '<button id="give_money" class="btn">Выдать баланс</button>';
 const infoContent = '<h6>Информация</h6>';
 
 function changeContent(content) {
