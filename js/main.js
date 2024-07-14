@@ -32,7 +32,6 @@ document.getElementById('mainContent').innerHTML = `
 });
 
 const marketContent = '<button>Тест</button>';
-const profileContent = '<h1>Профиль</h1>';
 const infoContent = '<h6>Информация</h2>';
 
 function changeContent(content) {
