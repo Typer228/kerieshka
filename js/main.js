@@ -4,7 +4,7 @@ Telegram.WebApp.ready();
 
 const user = Telegram.WebApp.initDataUnsafe.user;
 const userId = tg.initDataUnsafe.user.id;
-const userName = tg.initDataUnsafe.user.first_name;
+const userName = tg.initDataUnsafe.user.username;
 
 fetch('/register', {
     method: 'POST',
