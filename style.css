@@ -55,6 +55,16 @@ body {
 .btn:hover {
     background: var(--tg-theme-secondary-bg-color);
 }
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    height: 20px;
+}
+
+h4 {
+    margin: 0;
+}
   
 .profile {
     text-align: center;
