@@ -14,7 +14,7 @@ body {
     justify-content: space-between;
     background: var(--tg-theme-bg-color);
     margin: 0;
-    height: 60px;
+    height: 40px;
 }
 
 .footer-btn {
