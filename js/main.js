@@ -10,10 +10,10 @@ const userPhotoUrl = user.photo_url;
 fetch('/register', {
     method: 'POST',
     headers: {
-            'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     },
-        body: JSON.stringify({ id: userId, username: userName, photo_url: userPhotoUrl })
-})
+    body: JSON.stringify({ id: userId, username: userName, photo_url: userPhotoUrl })
+  })
 .then(response => response.json())
 .then(data => {
     // Обновление баланса
@@ -22,10 +22,10 @@ fetch('/register', {
 .catch(error => console.error('Ошибка:', error));
 
 const profileContent = `
-    <div class="profile">
+  <div class="profile">
     <img src="${userPhotoUrl}" alt="Avatar" class="avatar">
     <h2>${userName}</h2>
-    </div>
+  </div>
 `;
 
 const marketContent = '<button>Тест</button>';
