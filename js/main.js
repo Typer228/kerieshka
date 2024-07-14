@@ -23,7 +23,7 @@ fetch('/register', {
 
 const profileContent = `
   <div class="profile">
-    <img src="${photo_url}" alt="Avatar" class="avatar">
+    <img src="${userPhotoUrl}" alt="Avatar" class="avatar">
     <h2>${userName}</h2>
   </div>
 `;
