@@ -33,7 +33,6 @@ function changeContent(content) {
     const mainContent = document.getElementById('mainContent');
     mainContent.innerHTML = content;
 
-    // Привязка обработчика события после изменения содержимого
     if (content === marketContent) {
         const giveMoneyButton = document.getElementById('give_money');
         if (giveMoneyButton) {
