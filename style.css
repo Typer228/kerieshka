@@ -38,7 +38,7 @@ body {
     background: var(--tg-theme-secondary-bg-color);
 }
 
-button {
+.btn {
     border: 0;
     border-radius: 5px;
     margin-top: 50px;
@@ -52,7 +52,7 @@ button {
     background: #5288C1;
 }
 
-button:hover {
+.btn:hover {
     background: var(--tg-theme-secondary-bg-color);
 }
 
