@@ -15,16 +15,16 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
-    // Обновление баланса
-    document.getElementById('userBalance').innerText = `Баланс: ${data.balance}`;
+    // Обновление профиля с балансом
+    const profileContent = `
+      <div class="profile">
+        <h2>${userName}</h2>
+        <h4>Баланс: ${data.balance}</h4>
+      </div>
+    `;
+    changeContent(profileContent);
 })
 .catch(error => console.error('Ошибка:', error));
-
-const profileContent = `
-  <div class="profile">
-    <h2>${userName}</h2>
-  </div>
-`;
 
 const marketContent = '<button class="btn">Тест</button>';
 const infoContent = '<h6>Информация</h6>';
