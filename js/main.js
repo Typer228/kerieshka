@@ -15,7 +15,6 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
-    // Обновление баланса
     document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
 })
 .catch(error => console.error('Ошибка:', error));
@@ -26,7 +25,7 @@ const profileContent = `
   </div>
 `;
 
-const marketContent = '<button class="btn">Тест</button>';
+const marketContent = '<button id="give_money" class="btn">Выдать 52 монеты</button>';
 const infoContent = '<h6>Информация</h6>';
 
 function changeContent(content) {
@@ -74,10 +73,8 @@ document.getElementById('infoBtn').addEventListener('click', () => {
 
 setActiveTab('marketBtn');
 
-const giveBalanceBtn = document.createElement('button');
-giveBalanceBtn.innerText = 'Выдать 52 монеты';
-giveBalanceBtn.className = 'btn';
-giveBalanceBtn.addEventListener('click', () => {
+const giveMoneyBtn = document.getElementById('give_money');
+giveMoneyBtn.addEventListener('click', () => {
     fetch('/give_balance', {
         method: 'POST',
         headers: {
@@ -91,5 +88,3 @@ giveBalanceBtn.addEventListener('click', () => {
     })
     .catch(error => console.error('Ошибка:', error));
 });
-
-document.body.appendChild(giveBalanceBtn);
