@@ -1,5 +1,36 @@
 let tg = window.Telegram.WebApp;
 
+Telegram.WebApp.ready();
+
+const user = Telegram.WebApp.initDataUnsafe.user;
+const userId = user.id;
+const userName = user.username;
+const userPhotoUrl = user.photo_url;
+
+fetch('/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ id: userId, username: userName, photo_url: userPhotoUrl })
+  })
+.then(response => response.json())
+.then(data => {
+    // Обновление баланса
+    document.getElementById('userBalance').innerText = `Баланс: ${data.balance}`;
+})
+.catch(error => console.error('Ошибка:', error));
+
+// Профиль
+document.getElementById('profileBtn').addEventListener('click', () => {
+document.getElementById('mainContent').innerHTML = `
+    <div class="profile">
+    <img src="${userPhotoUrl}" alt="Avatar" class="avatar">
+    <h2>${userName}</h2>
+    </div>
+`;
+});
+
 const marketContent = '<button>Тест</button>';
 const profileContent = '<h1>Профиль</h1>';
 const infoContent = '<h6>Информация</h2>';
