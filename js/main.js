@@ -15,11 +15,10 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
-    // Обновление профиля с балансом
     const profileContent = `
       <div class="profile">
         <h2>${userName}</h2>
-        <h4>Баланс: ${data.balance}</h4>
+        <h4>Баланс: ${data.balance}₽</h4>
       </div>
     `;
     changeContent(profileContent);
