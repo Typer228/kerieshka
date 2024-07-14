@@ -22,7 +22,7 @@ fetch('/register', {
 
 const profileContent = `
   <div class="profile">
-    <h2>@${userName}</h2>
+    <h2>${userName}</h2>
   </div>
 `;
 
