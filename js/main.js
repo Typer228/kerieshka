@@ -31,13 +31,40 @@ const infoContent = '<h6>Информация</h6>';
 function changeContent(content) {
     const mainContent = document.getElementById('mainContent');
     mainContent.innerHTML = content;
+
+    const giveMoneyBtn = document.getElementById('give_money');
+    if (giveMoneyBtn) {
+        giveMoneyBtn.addEventListener('click', () => {
+            fetch('/give_balance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: userId, amount: 52 })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
+            })
+            .catch(error => console.error('Ошибка:', error));
+        });
+    }
 }
 
-document.getElementById('marketBtn').addEventListener('click', () => changeContent(marketContent));
-document.getElementById('profileBtn').addEventListener('click', () => changeContent(profileContent));
-document.getElementById('infoBtn').addEventListener('click', () => changeContent(infoContent));
+document.getElementById('marketBtn').addEventListener('click', () => {
+    changeContent(marketContent);
+    setActiveTab('marketBtn');
+});
+document.getElementById('profileBtn').addEventListener('click', () => {
+    changeContent(profileContent);
+    setActiveTab('profileBtn');
+});
+document.getElementById('infoBtn').addEventListener('click', () => {
+    changeContent(infoContent);
+    setActiveTab('infoBtn');
+});
 
-changeContent(marketContent);
+setActiveTab('marketBtn');
 
 function setActiveTab(activeTabId) {
     const buttons = {
@@ -57,34 +84,3 @@ function setActiveTab(activeTabId) {
         activeButton.style.background = 'grey';
     }
 }
-
-document.getElementById('marketBtn').addEventListener('click', () => {
-    changeContent(marketContent);
-    setActiveTab('marketBtn');
-});
-document.getElementById('profileBtn').addEventListener('click', () => {
-    changeContent(profileContent);
-    setActiveTab('profileBtn');
-});
-document.getElementById('infoBtn').addEventListener('click', () => {
-    changeContent(infoContent);
-    setActiveTab('infoBtn');
-});
-
-setActiveTab('marketBtn');
-
-const giveMoneyBtn = document.getElementById('give_money');
-giveMoneyBtn.addEventListener('click', () => {
-    fetch('/give_balance', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id: userId, amount: 52 })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
-    })
-    .catch(error => console.error('Ошибка:', error));
-});
