@@ -26,7 +26,7 @@ const profileContent = `
   </div>
 `;
 
-const marketContent = '<button>Тест</button>';
+const marketContent = '<button class="btn">Тест</button>';
 const infoContent = '<h6>Информация</h6>';
 
 function changeContent(content) {
