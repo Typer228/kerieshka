@@ -73,3 +73,23 @@ document.getElementById('infoBtn').addEventListener('click', () => {
 });
 
 setActiveTab('marketBtn');
+
+const giveBalanceBtn = document.createElement('button');
+giveBalanceBtn.innerText = 'Выдать 52 монеты';
+giveBalanceBtn.className = 'btn';
+giveBalanceBtn.addEventListener('click', () => {
+    fetch('/give_balance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: userId, amount: 52 })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
+    })
+    .catch(error => console.error('Ошибка:', error));
+});
+
+document.body.appendChild(giveBalanceBtn);
