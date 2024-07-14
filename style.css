@@ -14,12 +14,13 @@ body {
     justify-content: space-between;
     background: var(--tg-theme-bg-color);
     margin: 0;
+    height: 50px;
 }
 
 .footer-btn {
     border: 0;
     border-radius: 0;
-    height: 10%;
+    height: 100%;
     width: 33.3333%;
     font-size: 20px;
     font-weight: 508;
@@ -55,8 +56,8 @@ button:hover {
 .header {
     text-align: center;
     border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    height: 33px;
+    padding: 5px 0;
+    height: 20px;
 }
 
 h4 {
