@@ -3,8 +3,8 @@ let tg = window.Telegram.WebApp;
 Telegram.WebApp.ready();
 
 const user = Telegram.WebApp.initDataUnsafe.user;
-const userId = user.id;
-const userName = user.username;
+const userId = tg.initDataUnsafe.user.id;
+const userName = tg.initDataUnsafe.user.first_name;
 
 fetch('/register', {
     method: 'POST',
@@ -15,14 +15,16 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
-    profileContent = `
-      <div class="profile">
-        <h2>${userName}</h2>
-        <h4>Баланс: ${data.balance}₽</h4>
-      </div>
-    `;
+    // Обновление баланса
+    document.getElementById('userBalance').innerText = `Баланс: ${data.balance}`;
 })
 .catch(error => console.error('Ошибка:', error));
+
+const profileContent = `
+  <div class="profile">
+    <h2>${userName}</h2>
+  </div>
+`;
 
 const marketContent = '<button class="btn">Тест</button>';
 const infoContent = '<h6>Информация</h6>';
