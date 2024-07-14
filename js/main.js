@@ -15,6 +15,7 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
+    // Обновление баланса
     document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
 })
 .catch(error => console.error('Ошибка:', error));
@@ -31,6 +32,26 @@ const infoContent = '<h6>Информация</h6>';
 function changeContent(content) {
     const mainContent = document.getElementById('mainContent');
     mainContent.innerHTML = content;
+
+    if (content === marketContent) {
+        const giveMoneyButton = document.getElementById('give_money');
+        if (giveMoneyButton) {
+            giveMoneyButton.addEventListener('click', () => {
+                fetch('/update_balance', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: userId, amount: 52 })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
+                })
+                .catch(error => console.error('Ошибка:', error));
+            });
+        }
+    }
 }
 
 document.getElementById('marketBtn').addEventListener('click', () => changeContent(marketContent));
@@ -72,30 +93,3 @@ document.getElementById('infoBtn').addEventListener('click', () => {
 });
 
 setActiveTab('marketBtn');
-
-const observer = new MutationObserver((mutationsList, observer) => {
-    for (let mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            const giveMoneyButton = document.getElementById('give_money');
-            if (giveMoneyButton) {
-                giveMoneyButton.addEventListener('click', () => {
-                    fetch('/update_balance', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ id: userId, amount: 52 })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
-                    })
-                    .catch(error => console.error('Ошибка:', error));
-                });
-            }
-        }
-    }
-});
-
-const mainContent = document.getElementById('mainContent');
-observer.observe(mainContent, { childList: true, subtree: true });
