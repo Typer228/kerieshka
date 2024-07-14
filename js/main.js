@@ -15,8 +15,7 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
-    // Обновление баланса
-    document.getElementById('userBalance').innerText = `Баланс: ${data.balance}`;
+    document.getElementById('userBalance').innerText = `Баланс: ${data.balance}₽`;
 })
 .catch(error => console.error('Ошибка:', error));
 
@@ -33,6 +32,15 @@ function changeContent(content) {
     const mainContent = document.getElementById('mainContent');
     mainContent.innerHTML = content;
 }
+
+document.querySelectorAll('.icon').forEach(icon => {
+    icon.addEventListener('click', (event) => {
+        const button = event.target.closest('button');
+        if (button) {
+            button.click();
+        }
+    });
+});
 
 document.getElementById('marketBtn').addEventListener('click', () => changeContent(marketContent));
 document.getElementById('profileBtn').addEventListener('click', () => changeContent(profileContent));
