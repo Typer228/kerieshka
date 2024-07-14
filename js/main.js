@@ -6,8 +6,6 @@ const user = Telegram.WebApp.initDataUnsafe.user;
 const userId = user.id;
 const userName = user.username;
 
-let profileContent = '';
-
 fetch('/register', {
     method: 'POST',
     headers: {
@@ -17,7 +15,6 @@ fetch('/register', {
   })
 .then(response => response.json())
 .then(data => {
-    // Обновление профиля с балансом
     profileContent = `
       <div class="profile">
         <h2>${userName}</h2>
